@@ -7,7 +7,7 @@ const options = {
 };
 
 export const getTrending = async (baseUrl) => {
-      const response = await fetch(baseUrl + "all/day?language=en-US", options);
+      const response = await fetch(baseUrl + "trending/all/day?language=en-US", options);
       const data = await response.json();
       return data;
 };
@@ -17,7 +17,7 @@ export const getTrending = async (baseUrl) => {
  * @returns film di tendenza
  */
 export const getTrendingMovies = async (baseUrl) => {
-      const response = await fetch(baseUrl + "movie/day?language=en-US", options);
+      const response = await fetch(baseUrl + "trending/movie/day?language=en-US", options);
       const data = await response.json();
       return data;
 };
@@ -27,7 +27,18 @@ export const getTrendingMovies = async (baseUrl) => {
  * @returns serie di tendenza
  */
 export const getTrendingTV = async (baseUrl) => {
-      const response = await fetch(baseUrl + "tv/day?language=en-US", options);
+      const response = await fetch(baseUrl + "trending/tv/day?language=en-US", options);
+      const data = await response.json();
+      return data;
+};
+
+
+/** getTrendingTV
+ * @param nameActor
+ * @returns film/serie che hanno Brad Pitt
+ */
+export const getMovieFromActor = async (baseUrl, person) => {
+      const response = await fetch(baseUrl + `search/person?query=${person}`, options);
       const data = await response.json();
       return data;
 };
