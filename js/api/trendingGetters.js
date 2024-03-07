@@ -1,33 +1,27 @@
-const options = {
-      method: "GET",
-      headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZmI0ZjgyMzIzM2Q2NWVkZGUxODgzMjk1NWYzMTEwNiIsInN1YiI6IjY1ZTg2Y2QwY2U5ZTkxMDE2MjNlYzExNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pXN_2AHzljXwgMChJcysgQltFTW8kDAEYUTPWYikK0w",
-      },
-};
+import { OPTIONS, BASEURL } from "./config.js";
 
-export const getTrending = async (baseUrl) => {
-      const response = await fetch(baseUrl + "trending/all/day?language=en-US", options);
+export const getTrending = async () => {
+      const response = await fetch(BASEURL + "trending/all/day?language=en-US", OPTIONS);
       const data = await response.json();
       return data;
 };
 
 /** getTrendingMovies
- * @param baseUrl
+ * @param BASEURL
  * @returns film di tendenza
  */
-export const getTrendingMovies = async (baseUrl) => {
-      const response = await fetch(baseUrl + "trending/movie/day?language=en-US", options);
+export const getTrendingMovies = async () => {
+      const response = await fetch(BASEURL + "trending/movie/day?language=en-US", OPTIONS);
       const data = await response.json();
       return data;
 };
 
 /** getTrendingTV
- * @param baseUrl
+ * @param BASEURL
  * @returns serie di tendenza
  */
-export const getTrendingTV = async (baseUrl) => {
-      const response = await fetch(baseUrl + "trending/tv/day?language=en-US", options);
+export const getTrendingTV = async () => {
+      const response = await fetch(BASEURL + "trending/tv/day?language=en-US", OPTIONS);
       const data = await response.json();
       return data;
 };
@@ -37,8 +31,8 @@ export const getTrendingTV = async (baseUrl) => {
  * @param nameActor
  * @returns film/serie che hanno Brad Pitt
  */
-export const getMovieFromActor = async (baseUrl, person) => {
-      const response = await fetch(baseUrl + `search/person?query=${person}`, options);
+export const getMovieFromActor = async (person) => {
+      const response = await fetch(BASEURL + `search/person?query=${person}`, OPTIONS);
       const data = await response.json();
       return data;
 };
