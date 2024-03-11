@@ -1,5 +1,6 @@
 import { getTrending, getTrendingMovies, getTrendingTV, getMovieFromActor } from "./api/trendingGetters.js";
 import { person } from "./api/config.js";
+export { getTrendingMovies } from "./api/trendingGetters.js";
 
  /**
   * Da aggiungere:
