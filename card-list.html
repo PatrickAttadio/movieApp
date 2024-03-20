@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      <title>Movie App</title>
+      <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+      <header>
+            <div class="wrapper_navbar">
+                <div class="navbar_logo">
+                    <img src="assets/logo_movieapp.png">
+                </div>
+                <nav>
+                    <input class="hidden" type="checkbox" id="toggle_menu">
+                    <label class="button_menu" for="toggle_menu">
+                        <div class="menu_item"></div>
+                        <div class="menu_item"></div>
+                        <div class="menu_item"></div>
+                    </label>
+                    <div class="nav_container">
+                        <ul class="nav_tabs">
+                              <a class="underline_none" href="#trendingMovies"><li class="nav_tab">Trending Movies</li></a>
+                              <a class="underline_none" href="#trendingTV"><li class="nav_tab">Trending TV</li></a>
+                              <a class="underline_none" href="#trendingPeople"><li class="nav_tab">Trending People</li></a>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+      </header>
+
+      <div class="container">
+            <div class="row">
+                  <div id="trendingMovies" class="row content_left"></div>
+                  <div id="trendingTV" class="row content_left"></div>
+                  <div id="trendingPeople" class="row content_left"></div>
+            </div>
+      </div>
+</body>
+<script type="module">
+      import { addParagraph } from  "./js/utils/dom.js";
+      import { getTrendingMovies, getTrendingTV, getTrendingPeople } from "./js/index.js";
+      import { createCard } from "./js/dom-manipulator/create-list.js";
+
+      const movieData = await getTrendingMovies();
+      const tvData = await getTrendingTV();
+      const peopleData = await getTrendingPeople();
+      createCard(movieData.results, "trendingMovies");
+      createCard(tvData.results, "trendingTV");
+      createCard(peopleData.results, "trendingPeople");
+      console.log(getTrendingMovies());
+</script>
+
+</html>

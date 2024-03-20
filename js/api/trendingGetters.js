@@ -21,7 +21,7 @@ export const getTrendingMovies = async () => {
  * @returns serie di tendenza
  */
 export const getTrendingTV = async () => {
-      const response = await fetch(BASEURL + "trending/person/day?language=en-US", OPTIONS);
+      const response = await fetch(BASEURL + "trending/tv/day?language=en-US", OPTIONS);
       const people = await response.json();
       return people;
 };
@@ -31,7 +31,7 @@ export const getTrendingTV = async () => {
  * @returns nomi attori
  */
 export const getTrendingPeople = async () => {
-      const response = await fetch(BASEURL + "trending/tv/day?language=en-US", OPTIONS);
+      const response = await fetch(BASEURL + "trending/person/day?language=en-US", OPTIONS);
       const data = await response.json();
       return data;
 };
