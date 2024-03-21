@@ -35,15 +35,16 @@ export const createCard = (data, cardId) => {
             const textContainer = document.createElement("div");
             const cardTitle = document.createElement("h5"); 
             const cardDescription = document.createElement("p"); 
-            const cardButton = document.createElement("a"); 
+            const cardLink = document.createElement("a"); 
+            const cardButton = document.createElement("button"); 
             
             // METTO LE CLASSI
-            card.className="card col-12 col-md-6 col-lg-4 content_left";
+            card.className="card col-12 col-xs-6 col-md-4";
             textContainer.className="card-body";
             cardImage.className="card-img-top";
             cardTitle.className="card-title";
             cardDescription.className="card-text text_truncate";
-            cardButton.className="bn3";
+            cardButton.className="grow_skew_backward";
             
             // METTO GLI ATTRIBUTI
             if (cardId == "trendingMovies"){
@@ -54,10 +55,10 @@ export const createCard = (data, cardId) => {
             }
             if(cardId == "trendingPeople") {
                   cardImage.src = `https://image.tmdb.org/t/p/w500${element.profile_path}`;
-                  cardButton.href = `https://image.tmdb.org/t/p/w500${element.profile_path}`;
+                  cardLink.href = `https://image.tmdb.org/t/p/w500${element.profile_path}`;
             } else {
                   cardImage.src = `https://image.tmdb.org/t/p/w500${element.backdrop_path}`;
-                  cardButton.href = `https://image.tmdb.org/t/p/w500${element.poster_path}`;
+                  cardLink.href = `https://image.tmdb.org/t/p/w500${element.poster_path}`;
                   cardDescription.textContent = element.overview;
             }
             
@@ -77,7 +78,8 @@ export const createCard = (data, cardId) => {
                   textContainer.appendChild(cardDescription);
                   card.appendChild(cardImage);
                   card.appendChild(textContainer);
-                  card.appendChild(cardButton);
+                  cardLink.appendChild(cardButton);
+                  card.appendChild(cardLink);
                   cardContainer.appendChild(card);
 
             }

@@ -3,41 +3,51 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
       <title>Movie App</title>
+
+      <!-- IMPORT -->
+      <script src="js/utils/script.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
       <link rel="stylesheet" href="css/style.css">
+      <script src="https://use.fontawesome.com/releases/v6.5.1/js/all.js" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/b9e3290051.js" crossorigin="anonymous"></script> 
 </head>
 <body>
       <header>
-            <div class="wrapper_navbar">
-                <div class="navbar_logo">
-                    <img src="assets/logo_movieapp.png">
-                </div>
-                <nav>
-                    <input class="hidden" type="checkbox" id="toggle_menu">
-                    <label class="button_menu" for="toggle_menu">
-                        <div class="menu_item"></div>
-                        <div class="menu_item"></div>
-                        <div class="menu_item"></div>
-                    </label>
-                    <div class="nav_container">
-                        <ul class="nav_tabs">
-                              <a class="underline_none" href="#trendingMovies"><li class="nav_tab">Trending Movies</li></a>
-                              <a class="underline_none" href="#trendingTV"><li class="nav_tab">Trending TV</li></a>
-                              <a class="underline_none" href="#trendingPeople"><li class="nav_tab">Trending People</li></a>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+            <nav class="navbar" id="navbar">
+                  <div class="wrapper_navbar">
+                        <div class="navbar_logo">
+                              <img src="assets/logo_movieapp.png">
+                        </div>
+                        <input class="hidden" type="checkbox" id="toggle_menu">
+                        <label class="button_menu" for="toggle_menu">
+                              <div class="menu_item"></div>
+                              <div class="menu_item"></div>
+                              <div class="menu_item"></div>
+                        </label>
+                        <div class="nav_container">
+                              <ul class="nav_tabs">
+                                    <a class="underline_none" href="#movies"><li class="nav_tab hover-underline-animation">Trending Movies</li></a>
+                                    <a class="underline_none" href="#tv"><li class="nav_tab hover-underline-animation">Trending TV</li></a>
+                                    <a class="underline_none" href="#people"><li class="nav_tab hover-underline-animation">Trending People</li></a>
+                              </ul>
+                        </div>
+                  </div>
+            </nav>
       </header>
 
-      <div class="container">
+      <div class="container ">
             <div class="row">
+                  <h3 class="scrolling m_t_120p" id="movies">Trending Movies</h3>
                   <div id="trendingMovies" class="row content_left"></div>
+                  <h3 class="scrolling" id="tv">Trending TV</h3>
                   <div id="trendingTV" class="row content_left"></div>
+                  <h3 class="scrolling" id="people">Trending People</h3>
                   <div id="trendingPeople" class="row content_left"></div>
             </div>
       </div>
+      <button id="goToTopBtn" onclick="goToTop()"><i class="fa-solid fa-chevron-up"></i></button>
+
 </body>
 <script type="module">
       import { addParagraph } from  "./js/utils/dom.js";

@@ -2,39 +2,62 @@
 *, ::after, ::before { box-sizing:content-box!important }
 a { color: #000 }
 body { background: linear-gradient(to right, #859db3, #4fab5d); font-family: Helvetica, sans-serif }
-button { color: blue; background-color: white; border-color: blue; border-radius: 5px }
-button:hover { color: white; background-color: blue }
+button { color: blue; background-color: white; border-color: blue; border-radius: 5px;  font-size: 1.2em; background: #3498db; color: #fff; border: 0.25rem solid #3498db; margin: 1rem; position: relative; z-index: 1; overflow: hidden; }
+button:hover { color: white; background-color: blue; color: #3498db; }
+button::after { content: ""; background: #ecf0f1; position: absolute; z-index: -1; padding: 0.85em 0.75em; display: block; }
+button[class^="grow"]::after { transition: all 0.3s ease; }
+button[class^="grow"]:hover::after { transition: all 0.3s ease-out; }
+button.grow_skew_backward::after { left: -20%; right: -20%; top: 0; bottom: 0; transform: skewX(45deg) scale(0, 1); }
+button.grow_skew_backward:hover::after { transform: skewX(45deg) scale(1, 1); }
+h3 { margin-bottom: 40px; border-left: 5px solid #585 }
 ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
 
+/* ID */
+#goToTopBtn { display: none; position: fixed; bottom: 20px; right: 20px; background-color: rgba(46, 73, 47, 0.4); color: #000; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer }
+#goToTopBtn:hover { background-color: rgb(12 26 13 / 80%); color:#fff }
+#goToTopBtn::after { background-color: transparent }
+
 /* CLASS */
-.content_left { justify-content: start!important; }
-.bn3 { display: inline-block; padding: 0.5em 1.7em; margin: 0 0.1em 0.1em 0; border: 0.16em solid rgb(0, 0, 0); border-radius: 2em; box-sizing: border-box; text-decoration: none; font-weight: 300; color: #000000; text-align: center; transition: all 0.2s; width: 90px; margin-bottom: 30px }
-.bn3:hover { color: rgb(255, 255, 255); background-color: rgb(0, 0, 0) }
-.card:hover { transform: scale(1.05); }
-.card{ transition: transform .7s; width: 24rem; height: 35rem; margin-left: 20px; margin-bottom: 50px; box-shadow: 2px 2px 20px rgb(43, 42, 42) }
+.card:hover { transform: scale(1.05) }
+.card{ transition: transform .7s; width: 24rem; margin-right: 10px; margin-left: 10px; margin-bottom: 50px; box-shadow: 2px 2px 20px rgb(43, 42, 42) }
 .card-img-top{ margin-top: 10px }
 .hidden { display: none!important }
+.hover-underline-animation { display: inline-block; position: relative; color: #000a0e }
+.hover-underline-animation::after { content: ""; display: block; height: 2px; left: 50%; position: absolute; background: #ffffff; transition: width 0.3s ease 0s, left 0.3s ease 0s; width: 0 }
+.hover-underline-animation:hover::after { width: 100%; left: 0 }
 .logo { height: 60px!important }
+.m_t_120p { margin-top: 120px!important }
 .nav_tabs {  display: flex!important; font-weight: 600!important; font-size: 18px!important; list-style: none!important }
 .nav_tab:not(:last-child) {  padding: 10px 25px!important;  margin: 0!important;  border-right: 1px solid #eee!important }
-.nav_tab:last-child { padding: 10px 0 0 25px!important }
+.nav_tab:last-child { padding-top: 30px!important; margin-left:20px }
 .nav_tab, .button_menu { color: #fff!important; cursor: pointer!important }
-.navbar_logo { display: flex!important; justify-content: center!important; align-items: center!important; margin-left: 24px }
+.navbar { position: fixed; width: 100%; z-index: 999; padding-top: 0px!important }
 .navbar_logo img { width: 120px }
-.row { margin-top: 20px!important; width: 100%!important }
+.navbar_logo { display: flex!important; justify-content: center!important; align-items: center!important; margin-left: 24px }
+.row { margin-top: 20px!important; width: 100%!important; margin: 0px!important }
+.scrolling { scroll-margin-top: 120px }
 .text_truncate { width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 200px }
 .title-page{ color: white; background-color: rgba(47, 0, 255, 0.703); padding: 20px; font-size: 40px; font-weight: bold; text-align: center; margin-bottom: 60px; width: 100%!important }
 .underline_none { text-decoration: none!important }
-.wrapper_navbar { display: flex!important; position: relative!important; flex-direction: row!important; flex-wrap: nowrap!important; align-items: center!important; justify-content: space-between!important; margin: auto!important; width: 90%!important; height: 80px!important; border-radius: 0 0 15px 15px!important; padding: 0 25px!important; z-index: 2!important; background: #000!important; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2)!important }
+.wrapper_navbar { display: flex!important; position: relative!important; flex-direction: row!important; flex-wrap: nowrap!important; align-items: center!important; justify-content: space-between!important; margin: auto!important; width: 90%!important; height: 80px!important; border-radius: 0 0 15px 15px!important; padding: 0 25px!important; z-index: 2!important; background: #000000e6!important; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2)!important }
 
 /* MEDIA QUERY */
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+      .card { width: 28.5%!important }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+      .card { width: 43.5%!important }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+      .card { width: 42%!important }
+}
 @media screen and (max-width: 800px) {
-      .nav_container { position: fixed!important; display: none!important; overflow-y: auto!important; z-index: -1!important; top: 0!important; right: 0!important; width: 280px!important; height: 100%!important; background: #fff!important; box-shadow: -1px 0 2px rgba(0, 0, 0, 0.2)!important }
+      .nav_container { position: fixed!important; display: none!important; overflow-y: auto!important; z-index: -1!important; top: 0!important; right: 0!important; width: 280px!important; height: 100%!important; background: #000000e6!important; box-shadow: -1px 0 2px rgba(0, 0, 0, 0.2)!important }
       .nav_tabs { flex-direction: column!important; align-items: flex-end!important; margin-top: 80px!important; width: 100%!important }
       .nav_tab:not(:last-child) { padding: 20px 25px!important; margin: 0!important; border-right: unset!important; border-bottom: 1px solid #f5f5f5!important }
       .nav_tab:last-child { padding: 15px 25px!important }
       .button_menu { position: relative!important; display: block!important; margin: 0!important; width: 20px!important; height: 15px!important; cursor: pointer!important; z-index: 2!important; padding: 10px!important; border-radius: 10px!important }
-      .button_menu .menu_item { display: block!important; width: 100%!important; height: 2px!important; border-radius: 2px!important; background: #111!important }
+      .button_menu .menu_item { display: block!important; width: 100%!important; height: 2px!important; border-radius: 2px!important; background: #ffffff!important }
       .button_menu .menu_item:nth-child(2) { margin-top: 4px!important; opacity: 1!important }
       .button_menu .menu_item:nth-child(3) { margin-top: 4px!important }
       #toggle_menu:checked + .button_menu .menu_item { transition: transform 0.2s ease!important }
@@ -45,4 +68,7 @@ ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
       
       @keyframes menu-slide-left { 0% { transform: translateX(200px)!important } to { transform: translateX(0)!important } }
 }     
+ @media screen and (max-width: 767px) {
+      .card { width: 80%!important }
+ }
 
