@@ -25,7 +25,7 @@ export const createTrendingList = (data, listID) => {
 }
 
 export const createCard = (data, cardId) => {
-      var i = 0;
+      let i = 0;
       const cardContainer = document.getElementById(cardId);
       data.forEach(element => {
 
@@ -70,7 +70,7 @@ export const createCard = (data, cardId) => {
                   else {
                         cardTitle.textContent = element.name;
                   }
-                  cardButton.textContent = "Scopri di più";
+                  cardButton.textContent = "See more";
             
                   
                   // APPENDO ALL'HTML
@@ -81,7 +81,6 @@ export const createCard = (data, cardId) => {
                   cardLink.appendChild(cardButton);
                   card.appendChild(cardLink);
                   cardContainer.appendChild(card);
-
             }
             i++;
       });
