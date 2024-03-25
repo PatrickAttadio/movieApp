@@ -88,7 +88,7 @@ export const createCarouselCard = (data, cardId) => {
       data.forEach(element => {
 
             // DICHIARO I TAG
-            const carousel = document.createElement("div");
+            const owlItem = document.createElement("div");
             const item = document.createElement("div");
             const carta = document.createElement("div");
             const cartaInner = document.createElement("div");
@@ -102,9 +102,9 @@ export const createCarouselCard = (data, cardId) => {
             const cardButton = document.createElement("button");
             
             // METTO LE CLASSI
-            carousel.className="owl-carousel";
+            owlItem.className="owl-item col-4";
             item.className="item";
-            carta.className="col-12 col-md-6 col-lg-4 carta";
+            carta.className="carta";
             cartaInner.className="carta-inner";
             cartaFront.className="carta-face carta-front";
             cardImgTop.className="card-img-top";
@@ -131,7 +131,7 @@ export const createCarouselCard = (data, cardId) => {
                   cardText.textContent = element.overview;
             }
             
-            // METTO I CONTENUTI
+            // // METTO I CONTENUTI
             if (cardId == "trendingMovies"){
                   cardTitle.textContent = element.title;
             }
@@ -150,6 +150,8 @@ export const createCarouselCard = (data, cardId) => {
             cartaInner.appendChild(cartaFront)
             cartaInner.appendChild(cartaBack)
             carta.appendChild(cartaInner);
-            cardContainer.appendChild(carta);
+            item.appendChild(carta);
+            owlItem.appendChild(item);
+            cardContainer.appendChild(owlItem);
       });
-}           
+}
