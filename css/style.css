@@ -2,13 +2,13 @@
 *, ::after, ::before { box-sizing:content-box!important }
 a { color: #000 }
 body { background: linear-gradient(to right, #859db3, #4fab5d); font-family: Helvetica, sans-serif }
-button { color: blue; background-color: white; border-color: blue; border-radius: 5px;  font-size: 1.2em; background: #3498db; color: #fff; border: 0.25rem solid #3498db; margin: 1rem; position: relative; z-index: 1; overflow: hidden; }
-button:hover { color: white; background-color: blue; color: #3498db; }
-button::after { content: ""; background: #ecf0f1; position: absolute; z-index: -1; padding: 0.85em 0.75em; display: block; }
-button[class^="grow"]::after { transition: all 0.3s ease; }
-button[class^="grow"]:hover::after { transition: all 0.3s ease-out; }
-button.grow_skew_backward::after { left: -20%; right: -20%; top: 0; bottom: 0; transform: skewX(45deg) scale(0, 1); }
-button.grow_skew_backward:hover::after { transform: skewX(45deg) scale(1, 1); }
+button { color: blue; background-color: white; border-color: blue; border-radius: 5px;  font-size: 1.2em; background: #3498db; color: #fff; border: 0.25rem solid #3498db; margin: 1rem; position: relative; z-index: 1; overflow: hidden }
+button:hover { color: white; background-color: blue; color: #3498db }
+button::after { content: ""; background: #ecf0f1; position: absolute; z-index: -1; padding: 0.85em 0.75em; display: block }
+button[class^="grow"]::after { transition: all 0.3s ease }
+button[class^="grow"]:hover::after { transition: all 0.3s ease-out }
+button.grow_skew_backward::after { left: -20%; right: -20%; top: 0; bottom: 0; transform: skewX(45deg) scale(0, 1) }
+button.grow_skew_backward:hover::after { transform: skewX(45deg) scale(1, 1) }
 h3 { margin-bottom: 40px; border-left: 5px solid #585 }
 ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
 
@@ -19,8 +19,17 @@ ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
 
 /* CLASS */
 .card:hover { transform: scale(1.05) }
+.card-body{ padding: 20px }
+.card-img-top { width: 100%!important; height: 100%!important; object-fit: cover!important }
 .card{ transition: transform .7s; width: 24rem; margin: 0px 10px 50px!important; box-shadow: 2px 2px 20px rgb(43, 42, 42) }
-.card-img-top{ margin-top: 10px }
+.cards-img-top{ margin-top: 10px }
+.carta { height:270px; perspective: 1000px; padding: 0px; margin-bottom: 50px }
+.carta-inner { width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.5s }
+.carta:hover .carta-inner { transform: rotateY(180deg) }
+.carta-face { width: 100%; height: 100%; position: absolute; backface-visibility: hidden; justify-content: center; align-items: center }
+.carta-front { transform: rotateY(0deg); background-color: #fff }
+.carta-back { transform: rotateY(180deg); background-color: #007BFF; color: #fff }
+.carta-back p { padding: 30px }
 .hidden { display: none!important }
 .hover-underline-animation { display: inline-block; position: relative; color: #000a0e }
 .hover-underline-animation::after { content: ""; display: block; height: 2px; left: 50%; position: absolute; background: #ffffff; transition: width 0.3s ease 0s, left 0.3s ease 0s; width: 0 }
@@ -35,10 +44,12 @@ ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
 .navbar { position: fixed; width: 100%; z-index: 999; padding-top: 0px!important }
 .navbar_logo img { width: 120px }
 .navbar_logo { display: flex!important; justify-content: center!important; align-items: center!important; margin-left: 24px }
+.p_tl_30p {  padding: 30px 0px 0px 30px }
+.portfolio .portfolio-item { cursor: pointer; position: relative; display: block; max-width: 25rem; border-radius: 0.5rem; overflow: hidden }
 .row { width: 100%!important; margin: 0px!important }
 .scrolling { scroll-margin-top: 120px }
 /* .text_truncate { width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 200px } */
-.text_truncate { max-height: 170px; overflow-y: auto; }
+.text_truncate { max-height: 170px; overflow-y: auto }
 .title-page{ color: white; background-color: rgba(47, 0, 255, 0.703); padding: 20px; font-size: 40px; font-weight: bold; text-align: center; margin-bottom: 60px; width: 100%!important }
 .underline_none { text-decoration: none!important }
 .wrapper_navbar { display: flex!important; position: relative!important; flex-direction: row!important; flex-wrap: nowrap!important; align-items: center!important; justify-content: space-between!important; margin: auto!important; width: 90%!important; height: 80px!important; border-radius: 0 0 15px 15px!important; padding: 0 25px!important; z-index: 2!important; background: #000000e6!important; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2)!important }
@@ -79,87 +90,3 @@ ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
  }
 
 
- .portfolio .portfolio-item {
-      cursor: pointer;
-      position: relative;
-      display: block;
-      max-width: 25rem;
-      border-radius: 0.5rem;
-      overflow: hidden;
-    }
-    
-    
-
-    
-    
-    .carta-inner {
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-    }
-    
-    .carta:hover .carta-inner {
-      transform: rotateY(180deg);
-    }
-    
-    .carta-face {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      backface-visibility: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .carta-front {
-      transform: rotateY(0deg);
-      background-color: #fff;
-    }
-
-  
-    .carta-back {
-      transform: rotateY(180deg);
-      background-color: #007BFF;
-      color: #fff;
-    }
-    .carta-back p {
-      padding: 30px;
-    }
-
-    .card-body{
-      padding: 20px
-    }
-
-
-    .p_tl_30p { 
-      padding: 30px 0px 0px 30px;
-    }
-
-
-
-
-
-
-
-
-
-/* 
-    .card-img-top {
-      width: 100%!important;
-      height: 100%!important;
-      object-fit: cover!important;
-  }
-
-  .row>* { padding: 0px!important }
-
-  .carta {
-    width: 100%;
-    height:270px;
-    perspective: 1000px;
-  }
-
-  .m_l_10p {
-    margin-left: 10px;
-  } */

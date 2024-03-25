@@ -38,27 +38,29 @@
       <div class="container ">
             <div class="row">
                   <h3 class="scrolling m_t_120p" id="movies">Trending Movies</h3>
-                  <div id="trendingMovies" class="row content_left"></div>
+                  <div id="trendingMovies" class="row"></div>
                   <h3 class="scrolling" id="tv">Trending TV</h3>
-                  <div id="trendingTV" class="row content_left"></div>
+                  <div id="trendingTV" class="row"></div>
                   <h3 class="scrolling" id="people">Trending People</h3>
-                  <div id="trendingPeople" class="row content_left"></div>
+                  <div id="trendingPeople" class="row"></div>
             </div>
       </div>
+      <script src="../js/utils/script.js"></script>
       <button id="goToTopBtn" onclick="goToTop()"><i class="fa-solid fa-chevron-up"></i></button>
 
 </body>
 <script type="module">
       import { addParagraph } from  "../js/utils/dom.js";
       import { getTrendingMovies, getTrendingTV, getTrendingPeople } from "../js/index.js";
-      import { createCard } from "../js/dom-manipulator/create-list.js";
+      import { createCarouselCard, createCard } from "../js/dom-manipulator/create-list.js";
 
       const movieData = await getTrendingMovies();
       const tvData = await getTrendingTV();
       const peopleData = await getTrendingPeople();
-      createCard(movieData.results, "trendingMovies");
+      createCarouselCard(movieData.results, "trendingMovies");
       createCard(tvData.results, "trendingTV");
       createCard(peopleData.results, "trendingPeople");
+      console.log(getTrendingMovies());
 </script>
 
 </html>

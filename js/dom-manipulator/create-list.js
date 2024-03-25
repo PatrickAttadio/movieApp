@@ -25,7 +25,6 @@ export const createTrendingList = (data, listID) => {
 }
 
 export const createCard = (data, cardId) => {
-      let i = 0;
       const cardContainer = document.getElementById(cardId);
       data.forEach(element => {
 
@@ -41,7 +40,7 @@ export const createCard = (data, cardId) => {
             // METTO LE CLASSI
             card.className="card col-12 col-xs-6 col-md-4";
             textContainer.className="card-body";
-            cardImage.className="card-img-top";
+            cardImage.className="cards-img-top";
             cardTitle.className="card-title";
             cardDescription.className="card-text text_truncate";
             cardButton.className="grow_skew_backward";
@@ -62,26 +61,95 @@ export const createCard = (data, cardId) => {
                   cardDescription.textContent = element.overview;
             }
             
-            if(i != 3 || cardId != "trendingMovies") {
-                  // METTO I CONTENUTI
-                  if (cardId == "trendingMovies"){
-                        cardTitle.textContent = element.title;
-                  }
-                  else {
-                        cardTitle.textContent = element.name;
-                  }
-                  cardButton.textContent = "See more";
-            
-                  
-                  // APPENDO ALL'HTML
-                  textContainer.appendChild(cardTitle);
-                  textContainer.appendChild(cardDescription);
-                  card.appendChild(cardImage);
-                  card.appendChild(textContainer);
-                  cardLink.appendChild(cardButton);
-                  card.appendChild(cardLink);
-                  cardContainer.appendChild(card);
+            // METTO I CONTENUTI
+            if (cardId == "trendingMovies"){
+                  cardTitle.textContent = element.title;
             }
-            i++;
+            else {
+                  cardTitle.textContent = element.name;
+            }
+            cardButton.textContent = "See more";
+      
+            
+            // APPENDO ALL'HTML
+            textContainer.appendChild(cardTitle);
+            textContainer.appendChild(cardDescription);
+            card.appendChild(cardImage);
+            card.appendChild(textContainer);
+            cardLink.appendChild(cardButton);
+            card.appendChild(cardLink);
+            cardContainer.appendChild(card);
+      });
+}
+
+
+export const createCarouselCard = (data, cardId) => {
+      const cardContainer = document.getElementById(cardId);
+      data.forEach(element => {
+
+            // DICHIARO I TAG
+            const carousel = document.createElement("div");
+            const item = document.createElement("div");
+            const carta = document.createElement("div");
+            const cartaInner = document.createElement("div");
+            const cartaFront = document.createElement("div");
+            const cardImgTop = document.createElement("img");
+            const cartaBack = document.createElement("div");
+            const cartaBody = document.createElement("div");
+            const cardTitle = document.createElement("h5");
+            const cardText = document.createElement("p");
+            const cardLink = document.createElement("a");
+            const cardButton = document.createElement("button");
+            
+            // METTO LE CLASSI
+            carousel.className="owl-carousel";
+            item.className="item";
+            carta.className="col-12 col-md-6 col-lg-4 carta";
+            cartaInner.className="carta-inner";
+            cartaFront.className="carta-face carta-front";
+            cardImgTop.className="card-img-top";
+            cartaBack.className="carta-face carta-back";
+            cartaBody.className="card-body";
+            cardTitle.className="p_tl_30p card-title";
+            cardText.className="card-text text-truncate";
+            cardLink.className="p_tl_30p";
+            cardButton.className="grow_skew_backward";
+            
+            // METTO GLI ATTRIBUTI
+            if (cardId == "trendingMovies"){
+                  cardImgTop.alt = element.title;
+            }
+            else {
+                  cardImgTop.alt = element.name;
+            }
+            if(cardId == "trendingPeople") {
+                  cardImgTop.src = `https://image.tmdb.org/t/p/w500${element.profile_path}`;
+                  cardLink.href = `https://image.tmdb.org/t/p/w500${element.profile_path}`;
+            } else {
+                  cardImgTop.src = `https://image.tmdb.org/t/p/w500${element.backdrop_path}`;
+                  cardLink.href = `https://image.tmdb.org/t/p/w500${element.poster_path}`;
+                  cardText.textContent = element.overview;
+            }
+            
+            // METTO I CONTENUTI
+            if (cardId == "trendingMovies"){
+                  cardTitle.textContent = element.title;
+            }
+            else {
+                  cardTitle.textContent = element.name;
+            }
+            cardButton.textContent = "See more";
+            
+            // APPENDO ALL'HTML
+            cartaFront.appendChild(cardImgTop)
+            cartaBody.appendChild(cardTitle);
+            cartaBody.appendChild(cardText);
+            cartaBack.appendChild(cartaBody);
+            cartaBack.appendChild(cardLink);
+            cardLink.appendChild(cardButton);
+            cartaInner.appendChild(cartaFront)
+            cartaInner.appendChild(cartaBack)
+            carta.appendChild(cartaInner);
+            cardContainer.appendChild(carta);
       });
 }           
