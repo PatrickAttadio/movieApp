@@ -15,6 +15,7 @@
       <script src="https://kit.fontawesome.com/b9e3290051.js" crossorigin="anonymous"></script>
       <script src="js/utils/jquery.min.js"></script>
       <script src="js/utils/owl.carousel.js"></script>
+      <script src="js/utils/script.js"></script>
 </head>
 
 <body>
@@ -64,7 +65,6 @@
       </div>
       <button id="goToTopBtn" onclick="goToTop()"><i class="fa-solid fa-chevron-up"></i></button>
 
-      <script src="js/utils/script.js"></script>
       <script>
             let owl = $('.owl-carousel');
             owl.owlCarousel({
@@ -85,9 +85,9 @@
       </script>
 </body>
 <script type="module">
-      import { addParagraph } from "js/utils/dom.js";
-      import { getTrendingMovies, getTrendingTV, getTrendingPeople } from "js/index.js";
-      import { createCarouselCard, createCard } from "js/dom-manipulator/create-list.js";
+      import { addParagraph } from "./js/utils/dom.js";
+      import { getTrendingMovies, getTrendingTV, getTrendingPeople } from "./js/index.js";
+      import { createCarouselCard, createCard } from "./js/dom-manipulator/create-list.js";
 
       const movieData = await getTrendingMovies();
       const tvData = await getTrendingTV();
