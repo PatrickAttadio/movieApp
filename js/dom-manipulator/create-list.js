@@ -38,7 +38,11 @@ export const createCard = (data, cardId) => {
             const cardButton = document.createElement("button"); 
             
             // METTO LE CLASSI
-            card.className="card col-12 col-xs-6 col-md-4";
+            if(cardId == "trendingPeople"){
+                  card.className="card_people";
+            } else {
+                  card.className="card col-12 col-sm-6 col-md-4";
+            }
             textContainer.className="card-body";
             cardImage.className="cards-img-top";
             cardTitle.className="card-title";
@@ -88,8 +92,6 @@ export const createCarouselCard = (data, cardId) => {
       data.forEach(element => {
 
             // DICHIARO I TAG
-            const owlItem = document.createElement("div");
-            const item = document.createElement("div");
             const carta = document.createElement("div");
             const cartaInner = document.createElement("div");
             const cartaFront = document.createElement("div");
@@ -102,8 +104,6 @@ export const createCarouselCard = (data, cardId) => {
             const cardButton = document.createElement("button");
             
             // METTO LE CLASSI
-            owlItem.className="owl-item col-4";
-            item.className="item";
             carta.className="carta";
             cartaInner.className="carta-inner";
             cartaFront.className="carta-face carta-front";
@@ -150,8 +150,6 @@ export const createCarouselCard = (data, cardId) => {
             cartaInner.appendChild(cartaFront)
             cartaInner.appendChild(cartaBack)
             carta.appendChild(cartaInner);
-            item.appendChild(carta);
-            owlItem.appendChild(item);
-            cardContainer.appendChild(owlItem);
+            cardContainer.appendChild(carta);
       });
 }

@@ -1,5 +1,5 @@
 /* TAG */
-*, ::after, ::before { box-sizing:content-box!important }
+*, ::after, ::before { box-sizing: border-box }
 a { color: #000 }
 body { background: linear-gradient(to right, #859db3, #4fab5d); font-family: Helvetica, sans-serif }
 button { color: blue; background-color: white; border-color: blue; border-radius: 5px;  font-size: 1.2em; background: #3498db; color: #fff; border: 0.25rem solid #3498db; margin: 1rem; position: relative; z-index: 1; overflow: hidden }
@@ -9,7 +9,7 @@ button[class^="grow"]::after { transition: all 0.3s ease }
 button[class^="grow"]:hover::after { transition: all 0.3s ease-out }
 button.grow_skew_backward::after { left: -20%; right: -20%; top: 0; bottom: 0; transform: skewX(45deg) scale(0, 1) }
 button.grow_skew_backward:hover::after { transform: skewX(45deg) scale(1, 1) }
-h3 { margin-bottom: 40px; border-left: 5px solid #585 }
+h3 { margin-bottom: 40px; border-left: 5px solid rgb(0, 123, 255); }
 ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
 
 /* ID */
@@ -20,13 +20,13 @@ ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
 /* CLASS */
 .card:hover { transform: scale(1.05) }
 .card-body{ padding: 20px }
-.card-img-top { width: 100%!important; height: 100%!important; object-fit: cover!important }
-.card{ transition: transform .7s; width: 24rem; margin: 0px 10px 50px!important; box-shadow: 2px 2px 20px rgb(43, 42, 42) }
-.cards-img-top{ margin-top: 10px }
+.card-img-top { border-radius: 6px; width: 100%!important; height: 100%!important; object-fit: cover!important }
+.card { border-radius: 10px!important; transition: transform .7s; width: 24rem; margin: 0px 10px 50px!important; box-shadow: 2px 2px 20px rgb(43, 42, 42) }
+.cards-img-top{ border-radius: 5px 5px 0px 0px }
 .carta { height:270px; perspective: 1000px; padding: 0px; margin-bottom: 50px }
 .carta-inner { width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.5s }
 .carta:hover .carta-inner { transform: rotateY(180deg) }
-.carta-face { width: 100%; height: 100%; position: absolute; backface-visibility: hidden; justify-content: center; align-items: center }
+.carta-face { border-radius: 6px; width: 100%; height: 100%; position: absolute; backface-visibility: hidden; justify-content: center; align-items: center }
 .carta-front { transform: rotateY(0deg); background-color: #fff }
 .carta-back { transform: rotateY(180deg); background-color: #007BFF; color: #fff }
 .carta-back p { padding: 30px }
@@ -47,22 +47,25 @@ ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
 .p_tl_30p {  padding: 30px 0px 0px 30px }
 .portfolio .portfolio-item { cursor: pointer; position: relative; display: block; max-width: 25rem; border-radius: 0.5rem; overflow: hidden }
 .row { width: 100%!important; margin: 0px!important }
+.row>* { padding-top: 10px!important }    
 .scrolling { scroll-margin-top: 120px }
-/* .text_truncate { width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 200px } */
 .text_truncate { max-height: 170px; overflow-y: auto }
 .title-page{ color: white; background-color: rgba(47, 0, 255, 0.703); padding: 20px; font-size: 40px; font-weight: bold; text-align: center; margin-bottom: 60px; width: 100%!important }
 .underline_none { text-decoration: none!important }
 .wrapper_navbar { display: flex!important; position: relative!important; flex-direction: row!important; flex-wrap: nowrap!important; align-items: center!important; justify-content: space-between!important; margin: auto!important; width: 90%!important; height: 80px!important; border-radius: 0 0 15px 15px!important; padding: 0 25px!important; z-index: 2!important; background: #000000e6!important; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2)!important }
 
 /* MEDIA QUERY */
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-      .card { width: 28.5%!important }
+@media screen and (min-width: 1300px) {
+      .card { width: 31.5%!important }
+}
+@media screen and (min-width: 1200px) and (max-width: 1299px) {
+      .card { width: 31.5%!important }
 }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-      .card { width: 43.5%!important }
+      .card { width: 47.8%!important }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
-      .card { width: 42%!important }
+      .card { width: 47%!important }
 }
 @media screen and (max-width: 800px) {
       #toggle_menu:checked + .button_menu .menu_item { transition: transform 0.2s ease!important }
@@ -70,8 +73,8 @@ ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
       #toggle_menu:checked + .button_menu .menu_item:nth-child(2) { transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0)!important; opacity: 0!important }
       #toggle_menu:checked + .button_menu .menu_item:nth-child(3) { transform: translate3d(0, -6px, 0) rotate(-45deg)!important }
       #toggle_menu:checked ~ .nav_container { z-index: 1!important; display: flex!important; animation: menu-slide-left 0.3s ease!important }
-      .button_menu { position: relative!important; display: block!important; margin: 0!important; width: 20px!important; height: 15px!important; cursor: pointer!important; z-index: 2!important; padding: 10px!important; border-radius: 10px!important }
-      .button_menu .menu_item { display: block!important; width: 100%!important; height: 2px!important; border-radius: 2px!important; background: #ffffff!important }
+      .button_menu { cursor: pointer!important; z-index: 2!important; padding: 10px!important; border-radius: 10px!important }
+      .button_menu .menu_item { display: block!important; width: 22px!important; height: 2px!important; border-radius: 2px!important; background: #ffffff!important }
       .button_menu .menu_item:nth-child(2) { margin-top: 4px!important; opacity: 1!important }
       .button_menu .menu_item:nth-child(3) { margin-top: 4px!important }
       .nav_container { position: fixed!important; display: none!important; overflow-y: auto!important; z-index: -1!important; top: 0!important; right: 0!important; width: 280px!important; height: 100%!important; background: #000000e6!important; box-shadow: -1px 0 2px rgba(0, 0, 0, 0.2)!important }
@@ -82,49 +85,16 @@ ul { margin-bottom: 2rem!important; padding-right: 2rem!important }
       @keyframes menu-slide-left { 0% { transform: translateX(200px)!important } to { transform: translateX(0)!important } }
 }     
  @media screen and (max-width: 767px) {
-      .card { width: 85%!important }
+      .card { width: 97%!important }
  }
 
  @media screen and (max-width: 500px) {
-      .card { width: 80%!important }
+      .card { width: 95%!important }
  }
 
- /* OWL CAROUSEL */
- .owl-carousel,.owl-carousel .owl-item{-webkit-tap-highlight-color:transparent;position:relative }
- .owl-carousel{display:none;width:100%;z-index:1 }
- .owl-carousel .owl-stage{position:relative;-ms-touch-action:pan-Y;touch-action:manipulation;-moz-backface-visibility:hidden }
- .owl-carousel .owl-stage:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0 }
- .owl-carousel .owl-stage-outer{position:relative;overflow:hidden;-webkit-transform:translate3d(0,0,0) }
- .owl-carousel .owl-item,.owl-carousel .owl-wrapper{-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0) }
- .owl-carousel .owl-item{min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-touch-callout:none }
- .owl-carousel .owl-item img{display:block;width:100% }
- .owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none }
- .no-js .owl-carousel,.owl-carousel.owl-loaded{display:block }
- .owl-carousel .owl-dot,.owl-carousel .owl-nav .owl-next,.owl-carousel .owl-nav .owl-prev{cursor:pointer;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none }
- .owl-carousel .owl-nav button.owl-next,.owl-carousel .owl-nav button.owl-prev,.owl-carousel button.owl-dot{background:0 0;color:inherit;border:none;padding:0!important;font:inherit }
- .owl-carousel.owl-loading{opacity:0;display:block }
- .owl-carousel.owl-hidden{opacity:0 }
- .owl-carousel.owl-refresh .owl-item{visibility:hidden }
- .owl-carousel.owl-drag .owl-item{-ms-touch-action:pan-y;touch-action:pan-y;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none }
- .owl-carousel.owl-grab{cursor:move;cursor:grab }
- .owl-carousel.owl-rtl{direction:rtl }
- .owl-carousel.owl-rtl .owl-item{float:right }
- .owl-carousel .animated{animation-duration:1s;animation-fill-mode:both }
- .owl-carousel .owl-animated-in{z-index:0}.owl-carousel .owl-animated-out{z-index:1 }
- .owl-carousel .fadeOut{animation-name:fadeOut }
- @keyframes fadeOut{0%{opacity:1}100%{opacity:0} }
- .owl-height{transition:height .5s ease-in-out }
- .owl-carousel .owl-item .owl-lazy{opacity:0;transition:opacity .4s ease }
- .owl-carousel .owl-item .owl-lazy:not([src]),.owl-carousel .owl-item .owl-lazy[src^=""]{max-height:0 }
- .owl-carousel .owl-item img.owl-lazy{transform-style:preserve-3d }
- .owl-carousel .owl-video-wrapper{position:relative;height:100%;background:#000 }
- .owl-carousel .owl-video-play-icon{position:absolute;height:80px;width:80px;left:50%;top:50%;margin-left:-40px;margin-top:-40px;background:url(owl.video.play.png) no-repeat;cursor:pointer;z-index:1;-webkit-backface-visibility:hidden;transition:transform .1s ease }
- .owl-carousel .owl-video-play-icon:hover{-ms-transform:scale(1.3,1.3);transform:scale(1.3,1.3) }
- .owl-carousel .owl-video-playing .owl-video-play-icon,.owl-carousel .owl-video-playing .owl-video-tn{display:none }
- .owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;transition:opacity .4s ease }
- .owl-carousel .owl-video-frame{position:relative;z-index:1;height:100%;width:100% }
 
 
-.owl-item .active {
-      width: 400px!important
- }
+
+.card_people { background: #fff; border-radius: 6px }
+
+
